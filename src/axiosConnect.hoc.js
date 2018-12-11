@@ -44,17 +44,11 @@ export const axiosConnect = (options = {}) => (Component) => class extends React
 
   get mappedProps() {
     const { computedProps } = this;
-    const { mapping = {}} = options;
-    return Object.keys(computedProps).reduce((result, originalPropName) => {
-      const newPropName = mapping[originalPropName] || originalPropName;
-      return {
-        ...result,
-        [newPropName]: computedProps[originalPropName]
-      }
-    }, {});
+    const { mapping } = options;
+    return mapping ? mapping(computedProps) : computedProps;
   }
 
   render() {
     return <Component {...this.mappedProps} {...this.props} />;
   }
-} 
+}

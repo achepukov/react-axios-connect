@@ -51,10 +51,11 @@ it('should spread response if requested', (done) => {
 });
 
 it('should use mapping if provided', (done) => {
-  const mapping = {
-    isLoading: 'requestInProgress',
-    data: 'responseData',
-  };
+  const mapping = (props) => ({
+    requestInProgress: props.isLoading,
+    responseData: props.data,
+    doRequest: props.makeRequest,
+  });
   const Connected = axiosConnect({ mapping, spreadResponse: true })(FakeComponent);
   const wrapper = shallow(<Connected />);
 
@@ -64,7 +65,7 @@ it('should use mapping if provided', (done) => {
   
   const responseOnGet = {'some': 'json'};
   axiosMock.onGet('/').replyOnce(200, responseOnGet);
-  const promise = wrapper.prop('makeRequest')('/');
+  const promise = wrapper.prop('doRequest')('/');
   expect(wrapper.prop('requestInProgress')).toBeTruthy();
   expect(wrapper.prop('data')).toBeUndefined();
   expect(wrapper.prop('responseData')).toBeDefined();

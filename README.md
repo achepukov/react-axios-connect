@@ -1,15 +1,12 @@
 # Axios Connect - HOC for react component to use axios
 
-## Why?
-
-Because it's nice to keep axios logic incapsulated in [HOC](https://reactjs.org/docs/higher-order-components.html), and simply use stateless components just to display the data.
-
+Simple [HOC](https://reactjs.org/docs/higher-order-components.html) which provides axios items as a props.
 
 ## Install
 
-`yarn add axios-connect`
+`yarn add react-axios-connect`
 
-`npm i axios-connect`
+`npm i react-axios-connect`
 
 ## How to use
 
@@ -23,12 +20,12 @@ This hoc pass `makeRequest()`, `isLoading`, `response` and `error` props to the 
   error: null | Error, // Axios error if any
 }
 ```
-However, you can [specify you own mapping](#-`mapping`-key) for those props
+You can also [spread the response](#-`spreadResponse`-key) or [specify you own mapping](#-`mapping`-key) for the props
 
 ### Very Basic exapmple
 
 ```
-  import axiosConnect from 'axiosConnect';
+  import axiosConnect from 'react-axios-connect';
 
   class SomeComponent extends React.PureComponent {
 
@@ -162,10 +159,10 @@ class SomeComponent extends React.PureComponent {
 
 #### `mapping` key
 
-If you wish to rename the hoc props. Format - `{ hocPropName: desiredPropName }` i.e.:
+You can provide your own mapping hoc props:
 
 ```
-class SomeComponent extends React.PureComponent {
+  class SomeComponent extends React.PureComponent {
     render() {
       // no 'response' prop here anymore
       const { requestInProgress, serverResponse, requestError } = this.props;
@@ -174,11 +171,12 @@ class SomeComponent extends React.PureComponent {
       ...
     }
   }
-  const mapping = {
-    response: serverResponse,
-    isLoading: requestInProgress,
-    error: requestError
-  }
+  const mapping = props => ({
+    serverResponse: props.response,
+    requestInProgress: props.isLoading,
+    requestError: props.error,
+    doRequest: props.makeRequest,
+  })
 
   axiosConnect({ mapping })(SomeComponent)
 ```
