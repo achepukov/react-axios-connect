@@ -1,15 +1,15 @@
 {
   "name": "react-axios-connect",
-  "version": "1.0.0",
-  "description": "Simple axios HOC for react componentns",
+  "version": "1.0.1",
+  "description": "Simple axios HOC for react components",
   "main": "dist/main.js",
   "scripts": {
     "build": "webpack --mode production",
     "test": "jest --verbose"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["axios", "react", "hoc"],
+  "author": "Alex Chepukov",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/plugin-proposal-class-properties": "^7.2.1",
