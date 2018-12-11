@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import { isObject } from 'lodash';
 import axios from 'axios';
 
 export const axiosConnect = (options = {}) => (Component) => class extends React.PureComponent {
@@ -24,7 +24,7 @@ export const axiosConnect = (options = {}) => (Component) => class extends React
    */
   makeRequest = (urlOrRequestParams, method = 'get', data = {}, config = {}) => {
     this.setState({ isLoading: true });
-    const promise = _.isObject(urlOrRequestParams) ?
+    const promise = isObject(urlOrRequestParams) ?
          this.axiosInstance.request(urlOrRequestParams) :
          this.axiosInstance[method](urlOrRequestParams, data, config);
 

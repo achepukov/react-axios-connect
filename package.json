@@ -2,7 +2,7 @@
   "name": "react-axios-connect",
   "version": "1.0.0",
   "description": "Simple axios HOC for react componentns",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "webpack --mode production",
     "test": "jest"
