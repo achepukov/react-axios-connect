@@ -1,6 +1,6 @@
 {
   "name": "react-axios-connect",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple axios HOC for react components",
   "main": "main.js",
   "scripts": {
