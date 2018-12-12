@@ -9,3 +9,6 @@ cache:
 branches:
   only:
   - master
+
+# Send coverage data to Coveralls
+after_script: "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
