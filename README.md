@@ -1,4 +1,7 @@
-# Axios Connect - HOC for react component to use axios
+[![Build Status](https://travis-ci.com/achepukov/react-axios-connect.svg?branch=master)](https://travis-ci.com/achepukov/react-axios-connect)
+[![Coverage Status](https://coveralls.io/repos/github/achepukov/react-axios-connect/badge.svg?branch=master)](https://coveralls.io/github/achepukov/react-axios-connect?branch=master)
+
+# HOC for react component to use axios
 
 Simple [HOC](https://reactjs.org/docs/higher-order-components.html) which provides nice axios features as props.
 
