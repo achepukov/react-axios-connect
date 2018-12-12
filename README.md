@@ -23,7 +23,7 @@ This hoc pass `makeRequest()`, `isLoading`, `response` and `error` props to the 
   error: null | Error, // Axios error if any
 }
 ```
-You can also [spread the response](#-`spreadResponse`-key) or [specify you own mapping](#-`mapping`-key) for the props
+You can also [spread the response](#spreadresponse-key) or [specify you own mapping](#mapping-key) for the props
 
 ### Very Basic exapmple
 
