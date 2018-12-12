@@ -100,7 +100,7 @@ axiosConnect accepts the list of options to configure component behavior: `axios
     axios: CustomAxiosInstance,
     initialData: any,        // null by default
     spreadResponse: boolean, // false by default, spread the response into data, status, headers e.t.c. props
-    mapping: object,         // map hoc props to other props
+    mapping: Function,       // map hoc props to other props `(hocProps: Object): Object => mappedProps`
 }
 ```
 #### `axios` key
