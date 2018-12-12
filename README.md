@@ -1,6 +1,6 @@
 # Axios Connect - HOC for react component to use axios
 
-Simple [HOC](https://reactjs.org/docs/higher-order-components.html) which provides axios items as a props.
+Simple [HOC](https://reactjs.org/docs/higher-order-components.html) which provides nice axios features as props.
 
 ## Install
 
@@ -121,8 +121,6 @@ The initial `response.data` value. At very first load your component won't have 
       }
     }
   }
-
-  axiosConnect()(SomeComponent)
 ```
 
 If you define initial data, then it'll be something like this:
