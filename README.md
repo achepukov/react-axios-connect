@@ -7,9 +7,9 @@ Simple [HOC](https://reactjs.org/docs/higher-order-components.html) which provid
 
 ## Install
 
-`yarn add react-axios-connect`
+`yarn add axios react-axios-connect`
 
-`npm i react-axios-connect`
+`npm i axios react-axios-connect --save`
 
 ## How to use
 
