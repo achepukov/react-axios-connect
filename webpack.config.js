@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname),
-    libraryTarget: "umd",
+    libraryTarget: "commonjs2",
     filename: 'react-axios-connect.min.js',
   },
   module: {
@@ -28,7 +28,7 @@ module.exports = {
   externals: {
     // Don't bundle axio,react and react-dom      
     axios: {
-      commonjs: "axio",
+      commonjs: "axios",
       commonjs2: "axios",
       amd: "Axios",
       root: "Axios"
