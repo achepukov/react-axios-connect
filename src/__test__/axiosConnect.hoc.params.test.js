@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import axiosConnect from '../..';
+import axiosConnect from '..';
 import { axiosMock } from './axiosMock';
 
 const FakeComponent = () => <div>test</div>;
