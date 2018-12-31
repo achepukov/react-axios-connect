@@ -5,7 +5,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname),
     libraryTarget: "umd",
-    filename: 'index.js',
+    filename: 'react-axios-connect.min.js',
   },
   module: {
     rules: [
@@ -17,5 +17,33 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    alias: {
+      'axios': path.resolve(__dirname, './node_modules/axios'),
+      'react': path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+    }
+  },
+  externals: {
+    // Don't bundle axio,react and react-dom      
+    axios: {
+      commonjs: "axio",
+      commonjs2: "axios",
+      amd: "Axios",
+      root: "Axios"
+    },
+    react: {
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "React",
+      root: "React"
+    },
+    "react-dom": {
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "ReactDOM",
+      root: "ReactDOM"
+    }
   }
-  };
+};
