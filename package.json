@@ -5,6 +5,7 @@
   "main": "react-axios-connect.min.js",
   "scripts": {
     "build": "webpack --mode production",
+    "build-dev": "webpack --mode development",
     "test": "jest --verbose",
     "cover": "jest --coverage",
     "lint": "eslint src/",
