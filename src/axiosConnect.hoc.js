@@ -2,13 +2,20 @@ import React from 'react';
 import axios from 'axios';
 
 export const axiosConnect = (options = {}) => (Component) => class extends React.PureComponent {
-  axiosInstance = options.axios || axios;
+    componentDidMount () {
+        const onMountRequestConfig = this.props.onMountRequestConfig || options.onMountRequestConfig;
+        if (onMountRequestConfig) {
+            this.makeRequest(onMountRequestConfig);
+        }
+    }
 
   state = {
       error: null,
       response: { data: options.initialData || null },
       isLoading: false
   };
+
+  axiosInstance = options.axios || axios;
 
   requestDoneHandler = (response, error = null) => {
       this.setState({ isLoading: false, response, error });

@@ -17,10 +17,10 @@ This hoc pass `makeRequest()`, `isLoading`, `response` and `error` props to the 
 
 ```
 {
-  makeRequest: (urlOrRequestParams, method = 'get', data = {}, config = {}) => Promise,
-  isLoading: boolean,  // whether request is in progress
-  response: Object,    // Axios response object, see https://github.com/axios/axios#response-schema
   error: null | Error, // Axios error if any
+  isLoading: boolean,  // whether request is in progress
+  makeRequest: (urlOrRequestParams, method = 'get', data = {}, config = {}) => Promise,
+  response: Object,    // Axios response object, see https://github.com/axios/axios#response-schema
 }
 ```
 You can also [spread the response](#spreadresponse-key) or [specify you own mapping](#mapping-key) for the props
@@ -98,14 +98,35 @@ axiosConnect accepts the list of options to configure component behavior: `axios
 ```
 {
     axios: CustomAxiosInstance,
+    onMountRequestConfig: RequestConfig, // request config to be used in makeRequest on mount
     initialData: any,        // null by default
-    spreadResponse: boolean, // false by default, spread the response into data, status, headers e.t.c. props
     mapping: Function,       // map hoc props to other props `(hocProps: Object): Object => mappedProps`
+    spreadResponse: boolean, // false by default, spread the response into data, status, headers e.t.c. props
 }
 ```
 #### `axios` key
 
-Usable for passing custom axios instance
+Pass custom axios instance
+
+#### `onMountRequestConfig` key
+[Request config](https://github.com/axios/axios#request-config) to be used in call on component mount. This key also can be passed as a prop. If passed both - hoc option & prop, then prop win.
+
+Example: 
+
+```
+const onMountRequestConfig = {
+  url: '/some-url',
+  method: 'post',
+  data: { some: 'data' }
+}
+
+axiosConnect({ onMountRequestConfig })(Component);
+
+// or
+
+const ConnectedComponent = axiosConnect()(Component);
+<ConnectedComponent onMountRequestConfig={ onMountRequestConfig } />
+```
 
 #### `initialData` key
 
