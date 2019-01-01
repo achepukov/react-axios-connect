@@ -4,6 +4,7 @@ module.exports = {
     "plugins": ["jest"],
     "env": {
         "es6": true,
-        "jest": true
+        "jest": true,
+        "browser": true,
     }
 };
