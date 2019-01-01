@@ -8,3 +8,6 @@ babel.config.js
 jest.config.js
 jest.setup.js
 webpack.config.js
+yarn.lock
+.npmingore
+/.vscode/
