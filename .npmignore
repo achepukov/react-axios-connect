@@ -3,7 +3,6 @@
 .npmrc
 .travis.yml
 /coverage/
-/src/
 babel.config.js
 jest.config.js
 jest.setup.js

@@ -2,10 +2,9 @@
   "name": "react-axios-connect",
   "version": "1.0.21",
   "description": "Simple axios HOC for react components",
-  "main": "react-axios-connect.min.js",
+  "main": "dist/react-axios-connect.min",
   "scripts": {
-    "build": "webpack --mode production",
-    "build-dev": "webpack --mode development",
+    "build": "rm -r dist; webpack --mode production; webpack --mode development",
     "test": "jest --verbose",
     "cover": "jest --coverage",
     "lint": "eslint src/",
@@ -17,7 +16,8 @@
     "hoc"
   ],
   "pre-commit": [
-    "lintfix"
+    "lintfix",
+    "build"
   ],
   "license": "MIT",
   "repository": "https://github.com/achepukov/react-axios-connect",
