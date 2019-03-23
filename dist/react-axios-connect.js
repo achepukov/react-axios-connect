@@ -208,8 +208,12 @@ var axiosConnect = function axiosConnect() {
         value: function componentDidMount() {
           var onMountRequestConfig = this.props.onMountRequestConfig || options.onMountRequestConfig;
 
-          if (onMountRequestConfig) {
+          if (_typeof(onMountRequestConfig) === "object") {
             this.makeRequest(onMountRequestConfig);
+          }
+
+          if (typeof onMountRequestConfig === "function") {
+            this.makeRequest(onMountRequestConfig(this.props));
           }
         }
       }, {

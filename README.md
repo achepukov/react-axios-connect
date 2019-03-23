@@ -128,6 +128,13 @@ const ConnectedComponent = axiosConnect()(Component);
 <ConnectedComponent onMountRequestConfig={ onMountRequestConfig } />
 ```
 
+You also can pass a function, it accepts own component props as argument:
+
+```
+const ConnectedComponent = axiosConnect({ onMountRequestConfig: props => {url: props.theUrl })(Component);
+<ConnectedComponent theUrl="/some-url" />
+```
+In the example above component will load data from `/some-url`
 #### `initialData` key
 
 The initial `response.data` value. At very first load your component won't have any data loaded, so this is useful to not do additional check in your component, i.e. without `initialData` you'll need to write something like:
