@@ -4,8 +4,11 @@ import axios from 'axios';
 export const axiosConnect = (options = {}) => (Component) => class extends React.PureComponent {
     componentDidMount () {
         const onMountRequestConfig = this.props.onMountRequestConfig || options.onMountRequestConfig;
-        if (onMountRequestConfig) {
+        if (typeof onMountRequestConfig === "object") {
             this.makeRequest(onMountRequestConfig);
+        }
+        if (typeof onMountRequestConfig === "function") {
+            this.makeRequest(onMountRequestConfig(this.props));
         }
     }
 
