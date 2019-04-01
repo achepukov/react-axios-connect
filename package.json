@@ -1,6 +1,6 @@
 {
   "name": "react-axios-connect",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "Simple axios HOC for react components",
   "main": "dist/react-axios-connect.min",
   "scripts": {
