@@ -210,6 +210,6 @@ You can provide your own mapping hoc props:
   axiosConnect({ mapping })(SomeComponent)
 ```
 
-# Get support, report an issue / improvement
+# Report an issue / improvement
 
-Feel free to [report issue on github](https://github.com/achepukov/react-axios-connect/issues) as well as [to join the slack channel](https://join.slack.com/t/react-axios-connect/shared_invite/enQtNTE1NDU1OTQwNzI2LTJmMzZiMTIwYjhhNGEwYWFmYzQ1MjhmNDgwNWY2OWM0NWJiNDNjNTlmZTQwNDM3ODJkMWJhNDcxMWVmY2ExMmM)!
+Feel free to [report issue on github](https://github.com/achepukov/react-axios-connect/issues).
