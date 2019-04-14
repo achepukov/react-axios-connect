@@ -4,3 +4,5 @@ react-axios-connect.min.js
 webpack.config.js
 /dist
 ./*.js
+bable.config.js
+index.js
