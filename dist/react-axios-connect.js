@@ -110,7 +110,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -130,11 +132,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -163,7 +165,7 @@ var axiosConnect = function axiosConnect() {
 
         _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(_temp)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+        _defineProperty(_assertThisInitialized(_this), "state", {
           error: null,
           response: {
             data: options.initialData || null
@@ -171,9 +173,9 @@ var axiosConnect = function axiosConnect() {
           isLoading: false
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "axiosInstance", options.axios || axios__WEBPACK_IMPORTED_MODULE_1___default.a);
+        _defineProperty(_assertThisInitialized(_this), "axiosInstance", options.axios || axios__WEBPACK_IMPORTED_MODULE_1___default.a);
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "requestDoneHandler", function (response) {
+        _defineProperty(_assertThisInitialized(_this), "requestDoneHandler", function (response) {
           var error = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
           _this.setState({
@@ -183,7 +185,7 @@ var axiosConnect = function axiosConnect() {
           });
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "makeRequest", function (urlOrRequestParams) {
+        _defineProperty(_assertThisInitialized(_this), "makeRequest", function (urlOrRequestParams) {
           var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'get';
           var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
           var config = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
@@ -194,7 +196,7 @@ var axiosConnect = function axiosConnect() {
 
           var promise = _typeof(urlOrRequestParams) === 'object' ? _this.axiosInstance.request(urlOrRequestParams) : _this.axiosInstance[method](urlOrRequestParams, data, config);
           promise.then(_this.requestDoneHandler);
-          promise.catch(function (error) {
+          promise["catch"](function (error) {
             return _this.requestDoneHandler(error.response, error);
           });
           return promise;
@@ -231,7 +233,7 @@ var axiosConnect = function axiosConnect() {
           var props = {
             makeRequest: this.makeRequest
           };
-          return options.spreadResponse ? _objectSpread({}, props, restState, response) : _objectSpread({}, props, this.state);
+          return options.spreadResponse ? _objectSpread({}, props, {}, restState, {}, response) : _objectSpread({}, props, {}, this.state);
         }
       }, {
         key: "mappedProps",
